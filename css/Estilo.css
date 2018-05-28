@@ -1,0 +1,72 @@
+.tabla_ventanas_login {
+	color: #ffffff;
+	height:50px;	
+	border-right : #DCDCDC 0px solid;
+	border-top   : #DCDCDC 0px solid;
+	border-bottom: #DCDCDC 0px solid;
+	border-left  : #DCDCDC 0px solid;	
+	font-style: normal;
+	font-family: Arial;
+	font-weight: BOLD;
+	font-size: 20px;
+	/*background-color: #02a7c6;*/
+	padding-right : 0px;
+	padding-left  : 0px;
+	padding-top   : 0px;
+	padding-bottom: 0px;	 
+	border-collapse:separate;
+	border-spacing:0px 0px 0px 0px;	
+	border-top-left-radius: 8px 10px;
+	border-top-right-radius:8px 10px;
+	
+}
+.ventanas{
+	 
+	border-right : #DCDCDC 2px solid;
+	border-top   : #DCDCDC 1px solid;
+	border-bottom: #DCDCDC 1px solid;
+	border-left  : #DCDCDC 1px solid;	
+	font-style: normal;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: #ffffff;
+	padding-right : 0px;
+	padding-left  : 0px;
+	padding-top   : 0px;
+	padding-bottom: 20px;	 
+	border-collapse:separate;
+	border-spacing:0px 0px 0px 0px;	
+	border-radius: 5px 0px 0px 0px;
+	-moz-border-radius: 5px 30px 45px 60px;
+	-webkit-border-radius: 15px;
+	margin: 20px;
+
+
+}
+#contenido{
+   background:#fff;
+   margin:20px auto;
+   overflow:hidden;
+   padding:40px ;
+ border:1px solid #2E9AFE;
+   width:90%;
+   -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+footer{
+    background:#05A74B;
+   color:#fff;
+   padding:5px;
+   text-align: center
+
+}
+footer a{
+    color:#FF8000;
+    text-decoration: none;
+}
+footer a:hover{
+    color:#F2F5A9;
+
+}

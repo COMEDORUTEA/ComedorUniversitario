@@ -1,0 +1,8 @@
+CMP|Nombre       	   	  |NOMBRE             |text  	| 80 |SELECT  |INSERT  |UPDATE  |DECRYPT
+CMP|Apellidos      	   	  |APELLIDOS          |text  	| 80 |SELECT  |INSERT  |UPDATE  |DECRYPT
+CMP|Email	      	   	  |EMAIL 	          |text  	| 80 |SELECT  |INSERT  |UPDATE  |DECRYPT
+CMP|Fecha Registro	   	  |FECHA_REGISTRO     |text  	| 80 |SELECT  |NOINSERT|NOUPDATE|DECRYPT
+CMP|Tipo		      	  |TIPO	              |select   | 80 |SELECT  |INSERT  |UPDATE  |DECRYPT
+CMP|Estatus		      	  |ESTATUS	          |select   | 80 |SELECT  |INSERT  |UPDATE  |DECRYPT
+CMP|Password		      |PASSWORD	          |password | 80 |NOSELECT|INSERT  |UPDATE  |ENCRYPT
+CMP|Confirmar Password    |PASSWORD1	      |password | 80 |NOSELECT|INSERT  |NOUPDATE|ENCRYPT

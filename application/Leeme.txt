@@ -1,0 +1,4 @@
+Archivos a Modificar
+ - database.php => Configura tu usuario, contraseña y host de tu servidor de base de datos, la ruta del archivo es: ./application/config/database.php
+ - routers.php => en $route['default_controller'] se configura que controlador se va cargar primero en este caso login, la ruta es ./application/config/routes.php
+ - en config.php => en $config['encryption_key'] ahi colocamos la palabra para encriptar nuestra informacion 
