@@ -33,8 +33,15 @@ CREATE TABLE IF NOT EXISTS `comensales` (
   `ESCUELA_PROFECIONAL` varchar(50) NOT NULL,
   PRIMARY KEY (`CODIGO`)
 ) ENGINE=InnoDB ;
+--
+-- Volcado de datos para la tabla `comensales`
+--
 
-
+INSERT INTO `comensales` (`CODIGO`, `NOMBRE`, `APELLIDO`, `GENERO`, `ESCUELA_PROFECIONAL`) VALUES
+(2009203971, 'BELCY', 'PANCORBO MONZON', 'FEMENINO','INGENIERIA DE SISTEMAS E INFORMATICA'),
+(2011205011, 'RUBEN', 'TORRES BAZAN', 'MASCULINO','INGENIERIA DE SISTEMAS E INFORMATICA'),
+(2010258791, 'LUZ MARINA', 'TORRES ARONE', 'FEMENINO','ESTOMATOLOGIA'),
+-- --------------------------------------------------------
 -- --------------------------------------------------------
 
 --
