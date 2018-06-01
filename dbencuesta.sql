@@ -42,7 +42,6 @@ INSERT INTO `comensales` (`CODIGO`, `NOMBRE`, `APELLIDO`, `GENERO`, `ESCUELA_PRO
 (2011205011, 'RUBEN', 'TORRES BAZAN', 'MASCULINO','INGENIERIA DE SISTEMAS E INFORMATICA'),
 (2010258791, 'LUZ MARINA', 'TORRES ARONE', 'FEMENINO','ESTOMATOLOGIA'),
 -- --------------------------------------------------------
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `menu_sistema`
