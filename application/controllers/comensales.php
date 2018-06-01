@@ -62,6 +62,48 @@ class comensales extends CI_Controller
 		 $this->form_validation->set_rules("GENERO", "Genero", "callback_select_tipo");
 		 $this->form_validation->set_rules("ESCUELA_PROFESIONAL", "Escuela_Profesional", "trim|required");
 	 }
+	
+	/* FUNCIÓN ENCARGADO DE EDITAR UN REGISTRO DE LA TABLA COMENSAL*/
+   public function editar($codigo = NULL){
+    
+    if ($codigo == NULL OR !is_numeric($codigo)){
+      $data['Modulo']  = "Comensales";
+      $data['Error']   = "Error: El CODIGO <strong>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+      $this->load->view('header');
+      $this->load->view('view_errors',$data);
+      $this->load->view('footer');
+      return;
+    }
+    if ($this->input->post()) {
+      
+      $this->ValidaCampos();
+        
+      if ($this->form_validation->run() == TRUE){
+        $datos_update = $this->input->post();
+        $codigo_insertado = $this->model_comensales->edit($datos_update,$codigo);
+        redirect('comensales?update=true');
+        
+      }else{
+        $this->Nuevo();
+      }
+      
+    }else{
+      $data['datos_comensales'] = $this->model_comensales->BuscarCODIGO($codigo);
+      if (empty($data['datos_comensales'])){
+        $data['Modulo']  = "Comensales";
+        $data['Error']   = "Error: El ID <CODIGO>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+        $this->load->view('header');
+        $this->load->view('view_errors',$data);
+        $this->load->view('footer');
+      }else{
+        $this->load->view('header');
+        $this->load->view('view_nuevo_comensal',$data);
+        $this->load->view('footer');
+      }
+    }
+	   
+  }
+	
 }
 /* Archivo clientes.php */
 /* Location: ./application/controllers/clientes.php */
