@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ejemplos`
 --
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comensales`
+--
+
+CREATE TABLE IF NOT EXISTS `comensales` (
+  `CODIGO` int(11) NOT NULL,
+  `NOMBRE` varchar(50) NOT NULL,
+  `APELLIDO` varchar(50) NOT NULL ,
+  `GENERO` varchar(50) NOT NULL,
+  `ESCUELA_PROFECIONAL` varchar(50) NOT NULL,
+  PRIMARY KEY (`CODIGO`)
+) ENGINE=InnoDB ;
+
 
 -- --------------------------------------------------------
 
