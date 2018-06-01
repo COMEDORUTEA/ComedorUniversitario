@@ -59,11 +59,8 @@ class comensales extends CI_Controller
 		 $this->form_validation->set_rules("CODIGO", "Codigo", "trim|required");
 		 $this->form_validation->set_rules("NOMBRE", "Nombre", "trim|required");
 		 $this->form_validation->set_rules("APELLIDOS", "Apellidos", "trim|required");
-		 $this->form_validation->set_rules("SEXO", "Sexo", "callback_select_tipo");
-		 $this->form_validation->set_rules("DNI", "Dni", "trim|required");
-		 $this->form_validation->set_rules("FACULTAD", "Facultad", "trim|required");
-		 $this->form_validation->set_rules("EDAD", "Edad", "trim|required");
-		 $this->form_validation->set_rules("CORREO", "Correo", "trim|required");
+		 $this->form_validation->set_rules("GENERO", "Genero", "callback_select_tipo");
+		 $this->form_validation->set_rules("ESCUELA_PROFESIONAL", "Escuela_Profesional", "trim|required");
 	 }
 }
 /* Archivo clientes.php */
