@@ -103,7 +103,41 @@ class comensales extends CI_Controller
     }
 	   
   }
-	
+
+	/*FUNCIÓN ENCARGADO DE ELIMINAR UN REGISTRO DE LA TABLA COMENSAL*/
+  public function eliminar($codigo = NULL){
+    if ($codigo == NULL OR !is_numeric($codigo)){
+      $data['Modulo']  = "Comensales";
+      $data['Error']   = "Error: El CODIGO <strong>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+      $this->load->view('header');
+      $this->load->view('view_errors',$data);
+      $this->load->view('footer');
+      return;
+    }
+    if ($this->input->post()) {
+      $codigo_eliminar = $this->input->post('CODIGO');
+      $boton       = strtoupper($this->input->post('btn_guardar'));
+      if($boton=="NO"){
+        redirect("comensales");
+      }else{
+                                $this->model_comensales->Eliminar($codigo_eliminar);
+        redirect("comensales?delete=true");
+      }
+    }else{
+      $data['datos_comensales'] = $this->model_comensales->BuscarCODIGO($codigo);
+      if (empty($data['datos_comensales'])){
+        $data['Modulo']  = "Comensales";
+        $data['Error']   = "Error: El CODIGO <strong>".$codigo."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+        $this->load->view('header');
+        $this->load->view('view_errors',$data);
+        $this->load->view('footer');
+      }else{
+        $this->load->view('header');
+        $this->load->view('view_delete_comensal',$data);
+        $this->load->view('footer');
+      }
+    }
+  }
 }
 /* Archivo clientes.php */
 /* Location: ./application/controllers/clientes.php */
