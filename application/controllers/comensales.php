@@ -80,3 +80,79 @@ class comensales  extends CI_Controller
 		return true;
 		}
 	}
+	public function editar($id = NULL){
+		
+		if ($id == NULL){
+			$data['Modulo']  = "Comensales";
+			$data['Error']   = "Error: El ID <strong>".$id."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+			$this->load->view('header');
+			$this->load->view('view_errors',$data);
+			$this->load->view('footer');
+			return;
+		}
+		if ($this->input->post()) {
+			
+			$this->ValidaCampos();
+				
+			if ($this->form_validation->run() == TRUE){
+				$datos_update = $this->input->post();
+				$id_insertado = $this->model_comensales->edit($datos_update,$id);
+				redirect('comensales?update=true');
+				
+			}else{
+				$this->Nuevo();
+			}
+			
+		}else{
+			$data['datos_usuarios'] = $this->model_comensales->BuscarID($id);
+			if (empty($data['datos_usuarios'])){
+				$data['Modulo']  = "Comensales";
+				$data['Error']   = "Error: El ID <strong>".$id."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+				$this->load->view('header');
+				$this->load->view('view_errors',$data);
+				$this->load->view('footer');
+			}else{
+				$this->load->view('header');
+				$this->load->view('view_editar_comensal',$data);
+				$this->load->view('footer');
+			}
+		}
+		
+	}
+	public function eliminar($id = NULL){
+		if ($id == NULL){
+			$data['Modulo']  = "Comensales";
+			$data['Error']   = "Error: El ID <strong>".$id."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+			$this->load->view('header');
+			$this->load->view('view_errors',$data);
+			$this->load->view('footer');
+			return;
+		}
+		if ($this->input->post()) {
+			$id_eliminar = $this->input->post('CODIGO_COMENSAL');
+			$boton       = strtoupper($this->input->post('btn_guardar'));
+			if($boton=="NO"){
+				redirect("Comensales");
+			}else{
+                                $this->model_comensales->Eliminar($id_eliminar);
+				redirect("comensales?delete=true");
+			}
+		}else{
+			$data['datos_usuarios'] = $this->model_comensales->BuscarID($id);
+			if (empty($data['datos_usuarios'])){
+				$data['Modulo']  = "Comensales";
+				$data['Error']   = "Error: El ID <strong>".$id."</strong> No es Valido, Verifica tu Busqueda !!!!!!!";
+				$this->load->view('header');
+				$this->load->view('view_errors',$data);
+				$this->load->view('footer');
+			}else{
+				$this->load->view('header');
+				$this->load->view('view_delete_comensales',$data);
+				$this->load->view('footer');
+			}
+		}
+	}
+	
+}
+/* Archivo clientes.php */
+/* Location: ./application/controllers/clientes.php */
