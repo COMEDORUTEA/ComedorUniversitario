@@ -34,3 +34,5 @@ class model_comensales extends CI_Model {
 		$this->db->delete('comensales');
 		
 	}
+}
+?>
