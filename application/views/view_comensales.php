@@ -44,3 +44,40 @@ if(isset($_GET['permisos'])){
 </tr>
 </thead>
 <tbody>
+<?php 
+ $contador = 0;
+ if(!empty($comensales)){
+ 	foreach($comensales as $comensal){
+ 		echo '<tr>';
+		echo '<td>'
+?>
+		<a href="<?php echo base_url();?>index.php/comensales/editar/<?php echo $comensal->CODIGO_COMENSAL;?>/" class="btn btn-success">Editar</a>
+		<!--<a href="<?php echo base_url();?>index.php/comensales/password/<?php echo $comensal->CODIGO_COMENSAL ?>" class="btn btn-default">Password</a>
+		<a href="<?php echo base_url();?>index.php/comensales/permisos/<?php echo $comensal->CODIGO_COMENSAL;?>" class="btn btn-info">Permisos</a> -->
+		<a href="<?php echo base_url();?>index.php/comensales/eliminar/<?php echo $comensal->CODIGO_COMENSAL ?>" class="btn btn-danger">Eliminar</a>
+<?php		
+		echo '</td>';
+ 		echo '<td>'.$comensal->CODIGO_COMENSAL.'</td>';
+		echo '<td>'.$comensal->NOMBRES.'</td>';
+		echo '<td>'.$comensal->APELLIDOS.'</td>';
+ 		echo '<td>'.$comensal->ESCUELA_PROFESIONAL.'</td>';	
+ 		echo '<td>'.$comensal->EMAIL.'</td>';
+ 		echo '<td>'.$comensal->GENERO.'</td>';
+ 		 	/*Si es estatus mostramos en texto*/
+			if($comensal->ESTADO==0){
+			echo '<td>Activo</td>';
+			}
+			if($comensal->ESTADO==1){
+			echo '<td>Inactivo</td>';
+			}
+ 			
+ 	
+ 		echo '</tr>';
+ 	} 
+ }
+
+ ?>
+</tbody>
+</table>
+</center>
+</div>
