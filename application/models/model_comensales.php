@@ -1,57 +1,36 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class model_comensales extends CI_Model {
-
-  /*MODELO LISTAR*/
-  public function ListarComensales()
-  {
-    $this->db->order_by('CODIGO ASC');
-    return $this->db->get('comensales')->result();
-  }
-  /*MODELO PARA VERIFICAR EXISTENCIA DE CODIGO*/
-  public function ExisteCodigo($codigo){
+	public function ListarComensales(){
+		$this->db->order_by('CODIGO_COMENSAL ASC');
+		return $this->db->get('comensales')->result();
+	}
+	public function ExisteCodigo_comensal($Codigo_comensal){
           $this->db->from('comensales');
-          $this->db->where('CODIGO',$codigo);
+          $this->db->where('CODIGO_COMENSAL',$Codigo_comensal);
           return $this->db->count_all_results();
-  }
+     }
+        public function SaveComensales($arrayCliente){
+     	/*Nos aseguramos si realizamos todo o no*/
+     	$this->db->trans_start();
+     	$this->db->insert('comensales', $arrayCliente);
+     	$this->db->trans_complete();	
+     }
+	 function BuscarID($id){
 
-  /*MODELO PARA GUARDAR COMENSALES*/
-  public function SaveComensales($arrayComensal){
-      /*Nos aseguramos si realizamos todo o no*/
-      $this->db->trans_start();
-      $this->db->insert('comensales', $arrayComensal);
-      $this->db->trans_complete();  
-  }
+		$query = $this->db->where('CODIGO_COMENSAL',$id);
+		$query = $this->db->get('comensales');
+		return $query->result();
+		
+	}
+	function edit($data,$id){
 
-  /*MODELO PARA BUSCAR COMENSAL POR CODIGO*/
-  function BuscarCODIGO($codigo){
-    $query = $this->db->where('CODIGO',$codigo);
-    $query = $this->db->get('comensales');
-    return $query->result();  
-  }
+		$this->db->where('CODIGO_COMENSAL',$id);
+		$this->db->update('comensales',$data);
+		
+	}
+	function Eliminar($id){
 
-  /*MODELO PARA EDITAR COMENSAL*/
-  function edit($data,$codigo){
-    $this->db->where('CODIGO',$codigo);
-    $this->db->update('comensales',$data);
-  }
-
-  /*MODELO PARA ELIMINAR COMENSAL*/
-  function Eliminar($codigo){
-    $this->db->where('CODIGO',$codigo);
-    $this->db->delete('comensales');  
-  }
-  function MenuCompleto()
-  {
-    $this->db->order_by('ORDENAMIENTO ASC');
-    return $this->db->get('menu_sistema')->result();
-  }
-  function MiMenu($id,$id_menu)
-  {
-    $this->db->from('permisosmenu');
-    $this->db->where('ID_USUARIO',$id);
-    $this->db->where('ID_MENU',$id_menu);
-    $this->db->where('ESTATUS',0);
-    return $this->db->count_all_results();
-  }
-}
-?>
+		$this->db->where('CODIGO_COMENSAL',$id);
+		$this->db->delete('comensales');
+		
+	}
