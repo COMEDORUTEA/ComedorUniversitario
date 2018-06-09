@@ -2,7 +2,7 @@
 	  echo '<center>';
 	  echo '<table border=0 class="ventanas" width="650" cellspacing="0" cellpadding="0">';
 	  echo '<tr>';
-	  echo "<td class='tabla_ventanas_login' height='10' colspan='3'><legend align='center'>.: Asignar Permisos a ".$datos_usuarios[0]->NOMBRES.' '.$datos_usuarios[0]->APELLIDOS." :.</legend></td>";
+	  echo "<td class='tabla_ventanas_login' height='10' colspan='3'><legend align='center'> Asignar Permisos a ".$datos_usuarios[0]->nombres.' '.$datos_usuarios[0]->apellidos." :.</legend></td>";
 	  echo '</tr>';
 	  echo '<tr><td colspan=3>';
 	  echo form_open();
@@ -23,7 +23,7 @@
 		echo '<tr bgcolor="'.$body.'">';
 		echo '<td>'.form_checkbox("permissions[]",$id_menu[$i],$booleano).' '.$CheckText.'</td>';
 		echo '<td>'.$descripcion_menu[$i].'</td>';
-		echo '<td>'.$id_menu[$i].form_hidden("ID_COMENSAL",$datos_usuarios[0]->ID_COMENSAL).'</td>';
+		echo '<td>'.$id_menu[$i].form_hidden("codigo_alumno",$datos_usuarios[0]->codigo_alumno).'</td>';
 		echo '</tr>';
 	  }
 	  echo '<tr><td colspan=3><hr/></td></tr>';
