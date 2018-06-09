@@ -2,7 +2,7 @@
 <script type="text/javascript">
             /*CLIENTES*/
             $(document).ready(function() {
-                $('#comensales').dataTable( {
+                $('#alumnos').dataTable( {
                     // sDom: hace un espacio entre la tabla y los controles 
                 "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
         
@@ -30,44 +30,44 @@ if(isset($_GET['permisos'])){
 	}
 ?>
 <center>
-<table id="comensales" border="0" cellpadding="0" cellspacing="0" class="pretty">
+<table id="alumnos" border="0" cellpadding="0" cellspacing="0" class="pretty">
 <thead>
 <tr>
 <th>ACCION</th>
 <th>CODIGO</th>
+<th>DNI</th>
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
 <th>ESCUELA PROFESIONAL</th>
-<th>EMAIL</th>
 <th>GENERO</th>
 <th>ESTADO</th>
 </tr>
 </thead>
 <tbody>
-<?php 
+ <?php 
  $contador = 0;
- if(!empty($comensales)){
- 	foreach($comensales as $comensal){
+ if(!empty($alumnos)){
+ 	foreach($alumnos as $alumno){
  		echo '<tr>';
 		echo '<td>'
 ?>
-		<a href="<?php echo base_url();?>index.php/comensales/editar/<?php echo $comensal->CODIGO_COMENSAL;?>/" class="btn btn-success">Editar</a>
-		<!--<a href="<?php echo base_url();?>index.php/comensales/password/<?php echo $comensal->CODIGO_COMENSAL ?>" class="btn btn-default">Password</a>
-		<a href="<?php echo base_url();?>index.php/comensales/permisos/<?php echo $comensal->CODIGO_COMENSAL;?>" class="btn btn-info">Permisos</a> -->
-		<a href="<?php echo base_url();?>index.php/comensales/eliminar/<?php echo $comensal->CODIGO_COMENSAL ?>" class="btn btn-danger">Eliminar</a>
+		<a href="<?php echo base_url();?>alumnos/editar/<?php echo $alumno->codigo_alumno;?>/" class="btn btn-success">Editar</a>
+		<!--<a href="<?php echo base_url();?>index.php/alumnos/password/<?php echo $alumno->codigo_alumno ?>" class="btn btn-default">Password</a>
+		<a href="<?php echo base_url();?>index.php/alumnos/permisos/<?php echo $alumno->codigo_alumno;?>" class="btn btn-info">Permisos</a> -->
+		<a href="<?php echo base_url();?>alumnos/eliminar/<?php echo $alumno->codigo_alumno ?>" class="btn btn-danger">Eliminar</a>
 <?php		
 		echo '</td>';
- 		echo '<td>'.$comensal->CODIGO_COMENSAL.'</td>';
-		echo '<td>'.$comensal->NOMBRES.'</td>';
-		echo '<td>'.$comensal->APELLIDOS.'</td>';
- 		echo '<td>'.$comensal->ESCUELA_PROFESIONAL.'</td>';	
- 		echo '<td>'.$comensal->EMAIL.'</td>';
- 		echo '<td>'.$comensal->GENERO.'</td>';
+ 		echo '<td>'.$alumno->codigo_alumno.'</td>';
+		echo '<td>'.$alumno->dni.'</td>';
+		echo '<td>'.$alumno->nombres.'</td>';
+		echo '<td>'.$alumno->apellidos.'</td>';
+ 		echo '<td>'.$alumno->carrera_profesional.'</td>';	
+ 		echo '<td>'.$alumno->sexo.'</td>';
  		 	/*Si es estatus mostramos en texto*/
-			if($comensal->ESTADO==0){
+			if($alumno->estado==0){
 			echo '<td>Activo</td>';
 			}
-			if($comensal->ESTADO==1){
+			if($alumno->estado==1){
 			echo '<td>Inactivo</td>';
 			}
  			
